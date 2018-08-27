@@ -199,6 +199,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        if (mCurrentPetUri == null) {
+            return null;
+        }
         // Since the editor shows all pet attributes, define a projection that contains
         // all columns from the pet table
         String[] projection = {
